@@ -1,0 +1,40 @@
+/* ==========================================================================
+   TIVORA COUTURE — RESPONSIVE LAYER
+   Mobile-first base lives in style.css; this file layers breakpoint changes.
+   ========================================================================== */
+
+/* ---- Small phones tighten hero + type scale slightly ---- */
+@media (max-width: 380px) {
+  .hero-content { padding-bottom: var(--space-xl); }
+  .brand-mark .brand-script { font-size: 1.7rem; }
+}
+
+/* ---- Tablet ≥ 700px ---- */
+@media (min-width: 700px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+  .brand-intro .container { grid-template-columns: 1fr 1fr; }
+  .founder .container { grid-template-columns: 0.9fr 1.1fr; }
+  .footer-top { grid-template-columns: 1.3fr 1fr 1fr; }
+  .field-row { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---- Desktop ≥ 960px ---- */
+@media (min-width: 960px) {
+  .main-nav { display: block; }
+  .nav-toggle { display: none; }
+  .product-grid { grid-template-columns: repeat(4, 1fr); }
+  .footer-top { grid-template-columns: 1.6fr 1fr 1fr 1fr; }
+  .cta-band .container { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+  .cta-band-actions { margin-top: 0; }
+}
+
+/* ---- Large desktop ≥ 1280px ---- */
+@media (min-width: 1280px) {
+  .hero-content { max-width: 760px; }
+}
+
+/* ---- Fine pointers get richer hover states already defined by default;
+        coarse pointers (touch) drop hover-only affordances that need a tap ---- */
+@media (hover: none) {
+  .wishlist-toggle, .frame:hover img { transform: none !important; }
+}

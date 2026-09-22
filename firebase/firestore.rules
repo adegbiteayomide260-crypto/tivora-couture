@@ -1,0 +1,108 @@
+/* ==========================================================================
+   TIVORA COUTURE — FIRESTORE SECURITY RULES
+   Deploy with: firebase deploy --only firestore:rules
+   (or paste into Firebase Console → Firestore Database → Rules)
+
+   AUDIT — every read/write actually performed by the codebase:
+
+   products
+     • storefront read (shop.js, product.js, index.html)  → public GET/LIST
+     • admin create/update/delete (admin/js/products.js)   → admin only
+
+   orders
+     • storefront CREATE                                    → NEVER via client SDK.
+       checkout.js posts to netlify/functions/create-order.js, which will use
+       the Firebase Admin SDK server-side (bypasses these rules entirely).
+       So client-side create is correctly denied here.
+     • storefront order lookup (track-order.js page)         → primary path is
+       netlify/functions/track-order.js (Admin SDK, also bypasses rules).
+       firestore.js's getOrderByLookup() is a client-side fallback that will
+       correctly be denied by these rules (no public read) — this is
+       intentional: it prevents any client from listing/querying orders
+       directly, closing the one path that could otherwise leak another
+       customer's order.
+     • admin read + status update (admin/js/orders.js, dashboard.js)
+                                                              → admin only
+
+   customCoutureRequests
+     • storefront CREATE (custom-couture.js submitCustomCoutureRequest)
+                                                              → public create,
+                                                                fields limited
+     • admin read/update (admin/js/custom-couture.js)        → admin only
+
+   enquiries
+     • storefront CREATE (contact.js submitEnquiry)          → public create,
+                                                                fields limited
+     • admin read/update (admin/js/enquiries.js)             → admin only
+
+   newsletterSubscribers
+     • written server-side only, by netlify/functions/send-newsletter-email.js
+       (Admin SDK) — never by the client SDK, so no public write is needed
+     • admin read (admin/js/newsletter.js)                   → admin only
+
+   settings (docs: "general", "newsletter")
+     • storefront read (getSettings, for contact/footer info)→ public read
+     • admin write (admin/js/settings.js, newsletter.js)     → admin only
+   ========================================================================== */
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid == 'LNG9C1ewCLU3yRJPsKYUlFEpIeE3';
+    }
+
+    // ---- Products: public catalogue, admin-managed ----
+    match /products/{productId} {
+      allow get, list: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ---- Orders: system of record. Writes happen server-side only
+    //      (Netlify Function + Admin SDK, which bypasses these rules).
+    //      No client — customer or otherwise — can read, list, or write
+    //      here directly. This is what keeps one customer from ever being
+    //      able to browse another customer's order data. ----
+    match /orders/{orderId} {
+      allow get, list: if isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ---- Custom couture requests: anyone can submit a brief; only the
+    //      admin can read the list or change its status. ----
+    match /customCoutureRequests/{requestId} {
+      allow create: if request.resource.data.keys().hasAll(['name', 'phone'])
+        && request.resource.data.status == 'new';
+      allow get, list, update, delete: if isAdmin();
+    }
+
+    // ---- Contact enquiries: same shape as custom couture requests. ----
+    match /enquiries/{enquiryId} {
+      allow create: if request.resource.data.keys().hasAll(['name', 'phone', 'message'])
+        && request.resource.data.status == 'new';
+      allow get, list, update, delete: if isAdmin();
+    }
+
+    // ---- Newsletter subscribers: written only by the Netlify Function via
+    //      the Admin SDK (which bypasses these rules) — no client path
+    //      needs to write here, so it's locked to admin read-only. ----
+    match /newsletterSubscribers/{subscriberId} {
+      allow get, list: if isAdmin();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ---- Settings: public read for contact/footer info, admin write. ----
+    match /settings/{settingId} {
+      allow get, list: if true;
+      allow create, update, delete: if isAdmin();
+    }
+
+    // Deny everything else by default.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

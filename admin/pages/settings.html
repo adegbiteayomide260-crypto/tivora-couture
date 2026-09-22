@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings — Tivora Admin</title>
+<link rel="icon" href="../../assets/icons/favicon.png">
+<link rel="stylesheet" href="../css/admin.css">
+<link rel="stylesheet" href="../css/admin-responsive.css">
+</head>
+<body>
+<div class="admin-shell">
+  <div id="admin-sidebar"></div>
+  <main class="admin-main">
+    <div class="admin-topbar"><h1>Settings</h1></div>
+
+    <div class="admin-panel">
+      <h2>Operational Settings</h2>
+      <p class="muted" style="color:var(--a-muted); font-size:0.85rem; margin-top:-0.5rem; margin-bottom:1rem;">
+        Brand identity, typography, colors, the CEO biography, vision/mission and homepage structure are controlled by the code and design system, not here.
+      </p>
+      <form class="admin-form" id="settingsForm">
+        <div class="field"><label for="sWhatsapp">WhatsApp Number (international format)</label><input type="text" id="sWhatsapp" name="whatsapp" placeholder="2349156304383"></div>
+        <div class="field"><label for="sPhone1">Phone 1</label><input type="text" id="sPhone1" name="phone1"></div>
+        <div class="field"><label for="sPhone2">Phone 2</label><input type="text" id="sPhone2" name="phone2"></div>
+        <div class="field"><label for="sEmail">Email</label><input type="email" id="sEmail" name="email"></div>
+        <div class="field"><label for="sInstagram">Instagram URL</label><input type="url" id="sInstagram" name="instagram"></div>
+        <div class="field"><label for="sTiktok">TikTok URL</label><input type="url" id="sTiktok" name="tiktok"></div>
+        <div class="field"><label for="sFacebook">Facebook URL</label><input type="url" id="sFacebook" name="facebook"></div>
+        <div class="field"><label for="sAddress">Address</label><input type="text" id="sAddress" name="address"></div>
+        <div class="field"><label for="sHours">Business Hours</label><input type="text" id="sHours" name="businessHours"></div>
+        <div class="field"><label for="sDelivery">Delivery Information</label><textarea id="sDelivery" name="deliveryInfo" rows="3"></textarea></div>
+        <button type="submit" class="admin-btn">Save Settings</button>
+        <p class="login-error" id="settingsMsg" style="color:var(--a-success);"></p>
+      </form>
+    </div>
+  </main>
+</div>
+
+<script src="../../firebase/firebase-config.js"></script>
+<script src="../../firebase/firebase-helpers.js"></script>
+<script src="../../firebase/auth.js"></script>
+<script src="../../firebase/firestore.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/settings.js"></script>
+</body>
+</html>

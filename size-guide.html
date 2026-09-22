@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Size Guide — Tivora Couture</title>
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#3d0a19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Tangerine:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<style>
+  table.size-table { width: 100%; border-collapse: collapse; margin-top: var(--space-md); }
+  table.size-table th, table.size-table td { border: 1px solid var(--line); padding: 0.75rem 1rem; text-align: left; font-size: 0.9rem; }
+  table.size-table th { background: var(--cream-200); font-family: var(--font-display); }
+  .measure-steps { display: grid; gap: var(--space-md); margin-top: var(--space-md); }
+  .measure-step { display: flex; gap: var(--space-sm); }
+  .measure-step .num { font-family: var(--font-display); color: var(--gold-500); font-size: 1.4rem; }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-banner">
+  <div class="container">
+    <p class="breadcrumb">HOME / SIZE GUIDE</p>
+    <h1>Size Guide</h1>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <p class="eyebrow">STANDARD SIZING</p>
+    <h2>Find Your Size</h2>
+    <p class="muted">General reference only — exact Tivora measurements will be added here once finalised. For bespoke and made-to-order pieces, we always confirm your personal measurements directly.</p>
+    <div style="overflow-x:auto;">
+      <table class="size-table" aria-label="Size chart">
+        <thead><tr><th>Size</th><th>Bust (in)</th><th>Waist (in)</th><th>Hips (in)</th></tr></thead>
+        <tbody>
+          <tr><td>XS</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>S</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>M</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>L</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>XL</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream-200);">
+  <div class="container">
+    <p class="eyebrow">HOW TO MEASURE</p>
+    <h2>Taking Your Own Measurements</h2>
+    <div class="measure-steps">
+      <div class="measure-step"><span class="num">01</span><p>Use a soft measuring tape and wear fitted clothing for accuracy.</p></div>
+      <div class="measure-step"><span class="num">02</span><p>Bust — measure around the fullest part of your chest, keeping the tape level.</p></div>
+      <div class="measure-step"><span class="num">03</span><p>Waist — measure around the narrowest part of your natural waistline.</p></div>
+      <div class="measure-step"><span class="num">04</span><p>Hips — measure around the fullest part of your hips, roughly 8 inches below the waist.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container reveal">
+    <p class="eyebrow" style="color:var(--gold-300);">NOT SURE?</p>
+    <h2>We'll take it from here.</h2>
+    <p class="lede">For custom and made-to-order pieces, our atelier can guide you through measurements directly over WhatsApp.</p>
+    <div class="cta-band-actions">
+      <a href="https://wa.me/2349156304383" target="_blank" rel="noopener" class="btn btn-gold">Get Measurement Help</a>
+      <a href="custom-couture.html" class="btn btn-outline-light">Start a Custom Request</a>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="firebase/firebase-helpers.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

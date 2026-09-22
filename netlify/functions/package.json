@@ -1,0 +1,8 @@
+{
+  "name": "tivora-couture-functions",
+  "private": true,
+  "description": "Server-side dependencies for netlify/functions/*.js — run npm install here (or at the project root, depending on how Netlify is configured) before deploying.",
+  "dependencies": {
+    "firebase-admin": "^12.1.0"
+  }
+}

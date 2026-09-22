@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Order — Tivora Couture</title>
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#3d0a19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Tangerine:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<style>
+  .order-status-card { background: var(--cream-200); padding: var(--space-lg); text-align: center; }
+  .order-status-card h3 { margin-top: var(--space-2xs); }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-banner">
+  <div class="container">
+    <p class="breadcrumb">HOME / TRACK ORDER</p>
+    <h1>Track Your Order</h1>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container" style="max-width:520px;">
+    <form class="form-grid" id="trackForm">
+      <div class="field"><label for="orderNumber">Order Number</label><input type="text" id="orderNumber" name="orderNumber" placeholder="TC-260921-1234" required></div>
+      <div class="field"><label for="trackPhone">Phone / WhatsApp Used at Checkout</label><input type="tel" id="trackPhone" name="phone" required></div>
+      <button type="submit" class="btn btn-primary">Track Order</button>
+    </form>
+    <div id="trackResult" class="mt-lg" hidden></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="firebase/firebase-config.js"></script>
+<script src="firebase/firebase-helpers.js"></script>
+<script src="firebase/firestore.js"></script>
+<script src="js/main.js"></script>
+<script src="js/track-order.js"></script>
+</body>
+</html>

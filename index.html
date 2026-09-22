@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tivora Couture — Designed to Be Timeless</title>
+<meta name="description" content="Tivora Couture is a premium Nigerian luxury fashion house — bespoke outfits, bridal wear, aso ebi, corporate and ready-to-wear pieces. Designed to be timeless. Worn to be remembered.">
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#3d0a19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Tangerine:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero-layer tint" data-speed="0.06">
+    <img src="assets/images/tivora-01.webp" alt="Tivora Couture bespoke gown, editorial photography">
+  </div>
+  <div class="hero-content">
+    <p class="eyebrow">TIVORA COUTURE</p>
+    <h1>Designed to be timeless.<br>Worn to be remembered.</h1>
+    <p class="lede">Bespoke outfits, bridal wear and aso ebi crafted for the women who wear their story with intention — from Tivora's atelier to your moment.</p>
+    <div class="hero-cta">
+      <a href="shop.html" class="btn btn-gold">Shop the Collection</a>
+      <a href="custom-couture.html" class="btn btn-outline-light">Request Custom Couture</a>
+    </div>
+  </div>
+  <div class="hero-scroll-cue"><span>SCROLL</span><span class="line"></span></div>
+</section>
+
+<!-- ================= BRAND INTRODUCTION ================= -->
+<section class="section brand-intro">
+  <div class="container">
+    <div class="brand-intro-copy reveal">
+      <p class="eyebrow">THE HOUSE OF TIVORA</p>
+      <h2>Contemporary Nigerian couture,<br>crafted with care.</h2>
+      <p>Every Tivora piece begins as a conversation — about the woman who will wear it, the moment she is dressing for, and the story she wants her silhouette to tell. We work in fine fabrics and exacting craftsmanship, blending timeless tailoring with a distinctly Nigerian sense of occasion.</p>
+      <a href="about.html" class="btn-text mt-lg">Discover Our Story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EDITORIAL COMPOSITION ================= -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="editorial-grid reveal">
+      <div class="frame tall">
+        <img src="assets/images/tivora-02.webp" alt="Tivora Couture editorial photography, bespoke silhouette" loading="lazy">
+        <span class="asset-tag">Editorial</span>
+      </div>
+      <div class="frame wide">
+        <img src="assets/images/tivora-03.webp" alt="Tivora Couture editorial photography, atelier detail" loading="lazy">
+        <span class="asset-tag">Editorial</span>
+      </div>
+      <div class="frame small">
+        <img src="assets/images/tivora-04.webp" alt="Tivora Couture editorial photography, fabric detail" loading="lazy">
+        <span class="asset-tag">Editorial</span>
+      </div>
+      <div class="frame small" style="grid-column: span 4;">
+        <img src="assets/images/tivora-05.webp" alt="Tivora Couture editorial photography, finished look" loading="lazy">
+        <span class="asset-tag">Editorial</span>
+        <span class="frame-caption">Crafted with care</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED COLLECTION ================= -->
+<section class="section" id="featured" style="background:var(--cream-200);">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">FEATURED</p>
+      <h2>The Current Edit</h2>
+    </div>
+    <div class="product-grid reveal" id="featuredGrid"></div>
+    <div class="empty-state reveal" id="featuredEmpty" hidden>
+      <div class="glyph">Tivora</div>
+      <p>New pieces are arriving soon. Be the first to know when the current edit launches.</p>
+      <div class="actions">
+        <a href="custom-couture.html" class="btn btn-primary">Request Custom Couture</a>
+        <a href="#newsletter" class="btn btn-outline">Join the Newsletter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEW ARRIVALS ================= -->
+<section class="section" id="new-arrivals">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="eyebrow">JUST IN</p>
+      <h2>New Arrivals</h2>
+    </div>
+    <div class="product-grid reveal" id="newArrivalsGrid"></div>
+    <div class="empty-state reveal" id="newArrivalsEmpty" hidden>
+      <div class="glyph">Tivora</div>
+      <p>Our newest pieces are still on the atelier table. Check back soon, or tell us what you're looking for.</p>
+      <div class="actions">
+        <a href="shop.html" class="btn btn-outline">Browse the Shop</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CUSTOM COUTURE CTA ================= -->
+<section class="cta-band">
+  <div class="container reveal">
+    <p class="eyebrow" style="color:var(--gold-300);">BESPOKE</p>
+    <h2>Can't find what you're looking for?</h2>
+    <p class="lede">Bring us your vision — an occasion, a colour, a silhouette you've been dreaming of — and our atelier will bring it to life, made to your measurements.</p>
+    <div class="cta-band-actions">
+      <a href="custom-couture.html" class="btn btn-gold">Start a Custom Request</a>
+      <a href="https://wa.me/2349156304383" target="_blank" rel="noopener" class="btn btn-outline-light">Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CEO / FOUNDER TEASER ================= -->
+<section class="section founder" id="ceo">
+  <div class="container">
+    <div class="founder-photo reveal">
+      <img src="assets/images/ceo.webp" alt="Olajide Victoria Olusola, CEO and Founder of Tivora Couture" loading="lazy">
+    </div>
+    <div class="founder-copy reveal">
+      <p class="eyebrow">FROM THE FOUNDER</p>
+      <h2>A house built on craft and intention.</h2>
+      <p style="margin-top:var(--space-md); color:var(--ink-700);">Tivora Couture was founded on a simple belief — that clothing should be made with the same care as the moments it's worn for. Every piece leaving our atelier carries that standard.</p>
+      <p class="signature">Victoria Olusola</p>
+      <p class="role">CEO &amp; FOUNDER, TIVORA COUTURE</p>
+      <a href="about.html#ceo" class="btn-text mt-lg">Read Her Story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWSLETTER ================= -->
+<section class="section newsletter" id="newsletter">
+  <div class="container reveal">
+    <p class="eyebrow">STAY CONNECTED</p>
+    <h2>Stay in the world of Tivora</h2>
+    <p class="lede">Be the first to discover new collections, couture releases and exclusive updates.</p>
+    <form class="newsletter-form" id="newsletterForm">
+      <label for="newsletterEmail" class="visually-hidden">Email address</label>
+      <input type="email" id="newsletterEmail" name="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <p class="newsletter-msg" id="newsletterMsg"></p>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="firebase/firebase-config.js"></script>
+<script src="firebase/firebase-helpers.js"></script>
+<script src="firebase/firestore.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Populate featured / new arrivals from Firestore (falls back to empty state).
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const products = window.TivoraFirestore ? await window.TivoraFirestore.getProducts() : [];
+      renderRow('featuredGrid', 'featuredEmpty', products.filter(p => p.featured));
+      renderRow('newArrivalsGrid', 'newArrivalsEmpty', products.filter(p => p.newArrival));
+    } catch (e) {
+      document.getElementById('featuredEmpty').hidden = false;
+      document.getElementById('newArrivalsEmpty').hidden = false;
+    }
+  });
+  function renderRow(gridId, emptyId, items) {
+    const grid = document.getElementById(gridId);
+    const empty = document.getElementById(emptyId);
+    if (!items.length) { empty.hidden = false; return; }
+    grid.innerHTML = items.slice(0, 4).map(p => `
+      <article class="product-card">
+        <a href="product.html?id=${p.id}" class="thumb"><img src="${p.image}" alt="${p.name}" loading="lazy"></a>
+        <a href="product.html?id=${p.id}" class="info">
+          <span class="name">${p.name}</span>
+          <span class="price">${window.TivoraHelpers.formatNaira(p.price)}</span>
+        </a>
+      </article>`).join('');
+  }
+</script>
+</body>
+</html>

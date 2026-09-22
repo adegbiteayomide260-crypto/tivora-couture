@@ -1,0 +1,12 @@
+/* ==========================================================================
+   TIVORA COUTURE ADMIN — RESPONSIVE LAYER
+   ========================================================================== */
+
+@media (max-width: 860px) {
+  .admin-shell { flex-direction: column; }
+  .admin-sidebar { width: 100%; height: auto; position: static; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; padding: 1rem 1.25rem; }
+  .admin-sidebar nav { display: flex; flex-wrap: wrap; gap: 4px; }
+  .admin-sidebar .brand { margin-bottom: 0; }
+  .admin-sidebar .logout-btn { width: auto; margin-top: 0; }
+  table.admin-table { display: block; overflow-x: auto; white-space: nowrap; }
+}

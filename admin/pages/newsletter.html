@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsletter — Tivora Admin</title>
+<link rel="icon" href="../../assets/icons/favicon.png">
+<link rel="stylesheet" href="../css/admin.css">
+<link rel="stylesheet" href="../css/admin-responsive.css">
+</head>
+<body>
+<div class="admin-shell">
+  <div id="admin-sidebar"></div>
+  <main class="admin-main">
+    <div class="admin-topbar"><h1>Newsletter</h1></div>
+
+    <div class="admin-panel">
+      <h2>Section Content</h2>
+      <form class="admin-form" id="newsletterContentForm">
+        <div class="field"><label for="nlHeading">Heading</label><input type="text" id="nlHeading" name="heading"></div>
+        <div class="field"><label for="nlDescription">Description</label><textarea id="nlDescription" name="description" rows="2"></textarea></div>
+        <div class="field"><label for="nlButton">Button Text</label><input type="text" id="nlButton" name="buttonText"></div>
+        <div class="field"><label for="nlSuccess">Success Message</label><input type="text" id="nlSuccess" name="successMessage"></div>
+        <div class="field" style="flex-direction:row; align-items:center; gap:0.5rem;">
+          <input type="checkbox" id="nlEnabled" name="enabled" style="width:auto;">
+          <label for="nlEnabled" style="margin:0;">Section Enabled</label>
+        </div>
+        <button type="submit" class="admin-btn">Save Changes</button>
+      </form>
+    </div>
+
+    <div class="admin-panel">
+      <h2>Subscribers</h2>
+      <div style="overflow-x:auto;">
+        <table class="admin-table" id="subscribersTable">
+          <thead><tr><th>Email</th><th>Subscribed</th><th>Status</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="admin-empty" id="subscribersEmpty" hidden>No subscribers yet.</div>
+    </div>
+  </main>
+</div>
+
+<script src="../../firebase/firebase-config.js"></script>
+<script src="../../firebase/firebase-helpers.js"></script>
+<script src="../../firebase/auth.js"></script>
+<script src="../../firebase/firestore.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/newsletter.js"></script>
+</body>
+</html>

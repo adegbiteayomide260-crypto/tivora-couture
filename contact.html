@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Tivora Couture</title>
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#3d0a19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Tangerine:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<style>
+  .contact-layout { display: grid; gap: var(--space-xl); grid-template-columns: 1fr; }
+  @media (min-width: 900px) { .contact-layout { grid-template-columns: 0.9fr 1.1fr; } }
+  .contact-info dl { display: grid; gap: var(--space-md); }
+  .contact-info dt { font-size: 0.75rem; letter-spacing: 0.1em; color: var(--ink-500); }
+  .contact-info dd { font-family: var(--font-display); font-size: 1.15rem; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-banner">
+  <div class="container">
+    <p class="breadcrumb">HOME / CONTACT</p>
+    <h1>Contact Us</h1>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container contact-layout">
+    <div class="contact-info">
+      <p class="eyebrow">REACH THE ATELIER</p>
+      <dl>
+        <div><dt>WHATSAPP</dt><dd><a href="https://wa.me/2349156304383" target="_blank" rel="noopener">+234 915 630 4383</a></dd></div>
+        <div><dt>PHONE</dt><dd><a href="tel:09156304383">09156304383</a> · <a href="tel:07018937394">07018937394</a></dd></div>
+        <div><dt>BUSINESS HOURS</dt><dd style="font-family:var(--font-body); font-size:1rem;">Monday – Saturday, by appointment and WhatsApp</dd></div>
+      </dl>
+      <p class="muted mt-lg">Email and social handles will appear here once shared with us — reach out via WhatsApp or phone in the meantime.</p>
+    </div>
+
+    <form class="form-grid" id="contactForm">
+      <div class="field-row">
+        <div class="field"><label for="cName">Name</label><input type="text" id="cName" name="name" required></div>
+        <div class="field"><label for="cPhone">Phone / WhatsApp</label><input type="tel" id="cPhone" name="phone" required></div>
+      </div>
+      <div class="field"><label for="cEmail">Email</label><input type="email" id="cEmail" name="email" required></div>
+      <div class="field"><label for="cMessage">Message</label><textarea id="cMessage" name="message" rows="5" required></textarea></div>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+      <p class="newsletter-msg" id="contactMsg"></p>
+    </form>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="firebase/firebase-config.js"></script>
+<script src="firebase/firebase-helpers.js"></script>
+<script src="firebase/firestore.js"></script>
+<script src="js/main.js"></script>
+<script src="js/contact.js"></script>
+</body>
+</html>

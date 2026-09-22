@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wishlist — Tivora Couture</title>
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#3d0a19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Tangerine:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-banner">
+  <div class="container">
+    <p class="breadcrumb">HOME / WISHLIST</p>
+    <h1>Your Wishlist</h1>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="product-grid" id="wishlistGrid"></div>
+    <div class="empty-state" id="wishlistEmpty" hidden>
+      <div class="glyph">Tivora</div>
+      <p>Nothing saved yet. Tap the heart on any piece to save it here.</p>
+      <div class="actions"><a href="shop.html" class="btn btn-primary">Browse the Collection</a></div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="firebase/firebase-helpers.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

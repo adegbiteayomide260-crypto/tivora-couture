@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products — Tivora Admin</title>
+<link rel="icon" href="../../assets/icons/favicon.png">
+<link rel="stylesheet" href="../css/admin.css">
+<link rel="stylesheet" href="../css/admin-responsive.css">
+</head>
+<body>
+<div class="admin-shell">
+  <div id="admin-sidebar"></div>
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <h1>Products</h1>
+      <button type="button" class="admin-btn" id="addProductBtn">+ Add Product</button>
+    </div>
+
+    <div class="admin-panel" id="productEditorPanel" hidden>
+      <h2 id="productEditorTitle">Add Product</h2>
+      <form class="admin-form" id="productForm">
+        <div class="field"><label for="pName">Name</label><input type="text" id="pName" name="name" required></div>
+        <div class="field"><label for="pPrice">Price (₦)</label><input type="number" id="pPrice" name="price" min="0" required></div>
+        <div class="field">
+          <label for="pCategory">Category</label>
+          <select id="pCategory" name="category">
+            <option value="bespoke">Bespoke Outfits</option>
+            <option value="bridal">Bridal Wear</option>
+            <option value="aso-ebi">Aso Ebi</option>
+            <option value="corporate">Corporate Wear</option>
+            <option value="ready-to-wear">Casual &amp; Ready to Wear</option>
+          </select>
+        </div>
+        <div class="field"><label for="pSizes">Sizes (comma separated)</label><input type="text" id="pSizes" name="sizes" placeholder="S, M, L, XL"></div>
+        <div class="field"><label for="pColors">Colors (comma separated)</label><input type="text" id="pColors" name="colors" placeholder="Wine, Gold, Ivory"></div>
+        <div class="field">
+          <label for="pAvailability">Availability</label>
+          <select id="pAvailability" name="availability">
+            <option value="in-stock">In Stock</option>
+            <option value="made-to-order">Made to Order</option>
+            <option value="out-of-stock">Out of Stock</option>
+          </select>
+        </div>
+        <div class="field"><label for="pDescription">Description</label><textarea id="pDescription" name="description" rows="3"></textarea></div>
+        <div class="field"><label for="pCare">Care Instructions</label><textarea id="pCare" name="careInstructions" rows="2"></textarea></div>
+        <div class="field"><label for="pPrep">Preparation Time</label><input type="text" id="pPrep" name="preparationTime" placeholder="e.g. 2–3 weeks"></div>
+        <div class="field" style="flex-direction:row; align-items:center; gap:0.5rem;"><input type="checkbox" id="pFeatured" name="featured" style="width:auto;"><label for="pFeatured" style="margin:0;">Featured</label></div>
+        <div class="field" style="flex-direction:row; align-items:center; gap:0.5rem;"><input type="checkbox" id="pNew" name="newArrival" style="width:auto;"><label for="pNew" style="margin:0;">New Arrival</label></div>
+        <div class="field" style="flex-direction:row; align-items:center; gap:0.5rem;"><input type="checkbox" id="pMade" name="madeToOrder" style="width:auto;"><label for="pMade" style="margin:0;">Made to Order</label></div>
+        <div class="field">
+          <label for="productImagesInput">Product Images</label>
+          <input type="file" id="productImagesInput" accept="image/*" multiple>
+          <div class="file-preview-list" id="productImagesPreview"></div>
+        </div>
+        <div style="display:flex; gap:0.75rem;">
+          <button type="submit" class="admin-btn">Save Product</button>
+          <button type="button" class="admin-btn outline" id="cancelEditBtn">Cancel</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="admin-panel">
+      <div style="overflow-x:auto;">
+        <table class="admin-table" id="productsTable">
+          <thead><tr><th>Image</th><th>Name</th><th>Category</th><th>Price</th><th>Availability</th><th>Tags</th><th>Actions</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="admin-empty" id="productsEmpty" hidden>No products yet — add your first piece above.</div>
+    </div>
+  </main>
+</div>
+
+<script src="../../firebase/firebase-config.js"></script>
+<script src="../../firebase/firebase-helpers.js"></script>
+<script src="../../firebase/auth.js"></script>
+<script src="../../firebase/firestore.js"></script>
+<script src="../js/cloudinary.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/products.js"></script>
+</body>
+</html>

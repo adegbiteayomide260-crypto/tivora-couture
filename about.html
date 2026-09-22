@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Tivora Couture</title>
+<meta name="description" content="The story of Tivora Couture and its founder, Olajide Victoria Olusola — our philosophy, vision and mission.">
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#3d0a19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Tangerine:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<style>
+  .values-grid { display: grid; gap: var(--space-md); grid-template-columns: 1fr; margin-top: var(--space-lg); }
+  @media (min-width: 700px) { .values-grid { grid-template-columns: repeat(3, 1fr); } }
+  .value-card { border-top: 1px solid var(--gold-500); padding-top: var(--space-sm); }
+  .vm-grid { display: grid; gap: var(--space-lg); grid-template-columns: 1fr; }
+  @media (min-width: 700px) { .vm-grid { grid-template-columns: 1fr 1fr; } }
+  .vm-card { background: var(--cream-200); padding: var(--space-lg); }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-banner">
+  <div class="container">
+    <p class="breadcrumb">HOME / ABOUT</p>
+    <h1>Our Story</h1>
+  </div>
+</header>
+
+<section class="section brand-intro">
+  <div class="container">
+    <div class="brand-intro-copy reveal">
+      <p class="eyebrow">THE TIVORA STORY</p>
+      <h2>Where craft meets occasion.</h2>
+      <p>Tivora Couture began as a devotion to fine tailoring and grew into a house trusted for its bespoke outfits, bridal wear, aso ebi and made-to-order pieces. Every garment is shaped by hand, checked against the wearer's measurements, and finished to a standard that honours the moment it was made for.</p>
+      <p>We work closely with each client — from the first conversation about fabric and silhouette, through fittings, to the final reveal — because couture, to us, is a relationship, not a transaction.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--cream-200);">
+  <div class="container">
+    <div class="section-head center reveal">
+      <p class="eyebrow">WHAT GUIDES US</p>
+      <h2>Our Values</h2>
+    </div>
+    <div class="values-grid reveal">
+      <div class="value-card"><h3 style="font-size:1.3rem;">Quality Fabrics</h3><p class="muted">Sourced with the finished garment — and the woman wearing it — in mind.</p></div>
+      <div class="value-card"><h3 style="font-size:1.3rem;">Expert Craftsmanship</h3><p class="muted">Every stitch shaped by hands that have spent years perfecting the trade.</p></div>
+      <div class="value-card"><h3 style="font-size:1.3rem;">Attention to Detail</h3><p class="muted">Nothing leaves the atelier until it meets our own standard, not just yours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="vm-grid reveal">
+      <div class="vm-card">
+        <p class="eyebrow">VISION</p>
+        <h3>To be the definitive name in contemporary Nigerian couture — recognised for timeless design and uncompromising craftsmanship.</h3>
+      </div>
+      <div class="vm-card">
+        <p class="eyebrow">MISSION</p>
+        <h3>To dress every client with intention — creating pieces that are worn with confidence and remembered long after the occasion has passed.</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section founder" id="ceo">
+  <div class="container">
+    <div class="founder-photo reveal">
+      <img src="assets/images/ceo.webp" alt="Olajide Victoria Olusola, CEO and Founder of Tivora Couture" loading="lazy">
+    </div>
+    <div class="founder-copy reveal">
+      <p class="eyebrow">MEET THE FOUNDER</p>
+      <h2>Olajide Victoria Olusola</h2>
+      <p class="role">CEO &amp; FOUNDER, TIVORA COUTURE</p>
+      <p style="margin-top:var(--space-md); color:var(--ink-700);">Victoria's journey into fashion was shaped by a lifelong appreciation for fine tailoring and a belief that every woman deserves clothing made specifically for her. She founded Tivora Couture to bring that standard of personal, considered craftsmanship to a wider circle of women — from bridal parties to boardrooms.</p>
+      <p style="margin-top:var(--space-sm); color:var(--ink-700);">Under her direction, the house has built its name on discretion, precision, and a refusal to compromise on quality — values that continue to shape every piece that leaves the atelier today.</p>
+      <div class="hero-cta" style="margin-top:var(--space-lg);">
+        <a href="https://wa.me/2349156304383" target="_blank" rel="noopener" class="btn btn-primary">Contact the CEO</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="firebase/firebase-helpers.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

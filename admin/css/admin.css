@@ -1,0 +1,88 @@
+/* ==========================================================================
+   TIVORA COUTURE ADMIN — CORE STYLES
+   Reuses the storefront's color tokens (loaded via ../../css/style.css)
+   but a denser, operational layout — this is a workspace, not a boutique.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Jost:wght@400;500;600&display=swap');
+
+:root {
+  --a-bg: #f5ede0;
+  --a-panel: #ffffff;
+  --a-border: rgba(43,6,17,0.1);
+  --a-wine: #3d0a19;
+  --a-gold: #c39a4f;
+  --a-text: #201512;
+  --a-muted: #6b5850;
+  --a-danger: #a3352f;
+  --a-success: #3a7a4e;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: 'Jost', sans-serif;
+  background: var(--a-bg);
+  color: var(--a-text);
+}
+.admin-shell { display: flex; min-height: 100vh; }
+
+.admin-sidebar {
+  width: 240px;
+  background: var(--a-wine);
+  color: #fbf7ef;
+  padding: var(--space, 1.5rem) 1.25rem;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+.admin-sidebar .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 2rem; display: block; }
+.admin-sidebar nav a {
+  display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.65rem 0.75rem; border-radius: 4px;
+  color: rgba(251,247,239,0.8); font-size: 0.88rem; text-decoration: none;
+  margin-bottom: 2px;
+}
+.admin-sidebar nav a:hover, .admin-sidebar nav a.active { background: rgba(251,247,239,0.1); color: #fff; }
+.admin-sidebar .logout-btn { margin-top: 2rem; background: none; border: 1px solid rgba(251,247,239,0.25); color: #fbf7ef; padding: 0.6rem 1rem; width: 100%; border-radius: 4px; font-size: 0.82rem; cursor: pointer; }
+
+.admin-main { flex: 1; padding: 1.75rem clamp(1rem, 3vw, 2.5rem); min-width: 0; }
+.admin-topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.75rem; }
+.admin-topbar h1 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin: 0; color: var(--a-wine); }
+
+.stat-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 2rem; }
+.stat-card { background: var(--a-panel); border: 1px solid var(--a-border); border-radius: 6px; padding: 1.1rem 1.3rem; }
+.stat-card .label { font-size: 0.72rem; letter-spacing: 0.06em; color: var(--a-muted); text-transform: uppercase; }
+.stat-card .value { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--a-wine); margin-top: 4px; }
+
+.admin-panel { background: var(--a-panel); border: 1px solid var(--a-border); border-radius: 6px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+.admin-panel h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--a-wine); margin: 0 0 1rem; }
+
+table.admin-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+table.admin-table th, table.admin-table td { text-align: left; padding: 0.65rem 0.6rem; border-bottom: 1px solid var(--a-border); }
+table.admin-table th { color: var(--a-muted); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; }
+
+.status-chip { font-size: 0.7rem; padding: 3px 9px; border-radius: 20px; background: #efe4cf; color: var(--a-wine); }
+.status-chip.pending { background: #f2e2c8; }
+.status-chip.confirmed { background: #dfe8e0; color: var(--a-success); }
+.status-chip.processing { background: #e2e3f2; }
+.status-chip.ready { background: #d9ecf4; }
+.status-chip.completed { background: #d8ecdd; color: var(--a-success); }
+.status-chip.cancelled { background: #f3dcd9; color: var(--a-danger); }
+
+.admin-empty { text-align: center; padding: 2.5rem 1rem; color: var(--a-muted); }
+
+.admin-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.6rem 1.1rem; border-radius: 4px; border: 1px solid var(--a-wine); background: var(--a-wine); color: #fff; font-size: 0.82rem; cursor: pointer; text-decoration: none; }
+.admin-btn.outline { background: transparent; color: var(--a-wine); }
+.admin-btn.danger { background: var(--a-danger); border-color: var(--a-danger); }
+
+.admin-form .field { margin-bottom: 1rem; display: flex; flex-direction: column; gap: 4px; }
+.admin-form label { font-size: 0.78rem; color: var(--a-muted); }
+.admin-form input, .admin-form select, .admin-form textarea { padding: 0.65rem 0.8rem; border: 1px solid var(--a-border); border-radius: 4px; font-family: inherit; font-size: 0.92rem; }
+
+.login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: var(--a-wine); }
+.login-card { background: #fff; padding: 2.5rem; border-radius: 8px; width: 100%; max-width: 380px; }
+.login-card h1 { font-family: 'Cormorant Garamond', serif; color: var(--a-wine); text-align: center; margin-bottom: 0.3rem; }
+.login-card p.sub { text-align: center; color: var(--a-muted); font-size: 0.85rem; margin-bottom: 1.5rem; }
+.login-error { color: var(--a-danger); font-size: 0.82rem; min-height: 1.2em; margin-top: 0.5rem; }

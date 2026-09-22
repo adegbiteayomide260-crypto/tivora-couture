@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Tivora Couture</title>
+<meta name="description" content="Explore Tivora Couture's collection — bespoke outfits, bridal wear, aso ebi, corporate and ready-to-wear pieces.">
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#3d0a19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Tangerine:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+<style>
+  .shop-layout { display: grid; gap: var(--space-lg); }
+  .shop-controls { display: grid; gap: var(--space-sm); grid-template-columns: 1fr; margin-bottom: var(--space-lg); }
+  .shop-controls select, .shop-controls input { border: 1px solid var(--line); background: var(--white); padding: 0.75rem 1rem; font-size: 0.85rem; }
+  @media (min-width: 700px) { .shop-controls { grid-template-columns: 1.4fr 1fr 1fr 1fr; } }
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-banner">
+  <div class="container">
+    <p class="breadcrumb">HOME / SHOP</p>
+    <h1>The Collection</h1>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container shop-layout">
+    <div class="shop-controls">
+      <input type="search" id="shopSearch" placeholder="Search pieces…" aria-label="Search products">
+      <select id="shopCategory" aria-label="Filter by category">
+        <option value="">All Categories</option>
+        <option value="bespoke">Bespoke Outfits</option>
+        <option value="bridal">Bridal Wear</option>
+        <option value="aso-ebi">Aso Ebi</option>
+        <option value="corporate">Corporate Wear</option>
+        <option value="ready-to-wear">Casual &amp; Ready to Wear</option>
+      </select>
+      <select id="shopAvailability" aria-label="Filter by availability">
+        <option value="">All Availability</option>
+        <option value="in-stock">In Stock</option>
+        <option value="made-to-order">Made to Order</option>
+      </select>
+      <select id="shopSort" aria-label="Sort products">
+        <option value="">Sort: Featured</option>
+        <option value="newest">Newest</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+      </select>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+
+    <div class="empty-state" id="shopEmpty" hidden>
+      <div class="glyph">Tivora</div>
+      <h3>New pieces are arriving soon.</h3>
+      <p>Our current edit is being prepared by the atelier. In the meantime, tell us what you're looking for.</p>
+      <div class="actions">
+        <a href="custom-couture.html" class="btn btn-primary">Request Custom Couture</a>
+        <a href="https://wa.me/2349156304383" target="_blank" rel="noopener" class="btn btn-outline">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="firebase/firebase-config.js"></script>
+<script src="firebase/firebase-helpers.js"></script>
+<script src="firebase/firestore.js"></script>
+<script src="js/main.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>

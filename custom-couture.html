@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Couture — Tivora Couture</title>
+<meta name="description" content="Request a bespoke Tivora Couture design — tell us your occasion, colour and vision, and our atelier will bring it to life.">
+<link rel="icon" href="assets/icons/favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#3d0a19">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Tangerine:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<header class="page-banner">
+  <div class="container">
+    <p class="breadcrumb">HOME / CUSTOM COUTURE</p>
+    <h1>Custom Couture</h1>
+    <p class="lede" style="margin-inline:auto; color:rgba(251,247,239,0.8);">A piece designed entirely around you — your occasion, your measurements, your story.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container" style="max-width:760px;">
+    <form class="form-grid" id="coutureForm">
+      <div class="field-row">
+        <div class="field"><label for="name">Full Name</label><input type="text" id="name" name="name" required></div>
+        <div class="field"><label for="phone">WhatsApp / Phone</label><input type="tel" id="phone" name="phone" required></div>
+      </div>
+      <div class="field"><label for="email">Email</label><input type="email" id="email" name="email" required></div>
+      <div class="field"><label for="desiredDesign">Describe Your Desired Design</label><textarea id="desiredDesign" name="desiredDesign" rows="4" required></textarea></div>
+      <div class="field-row">
+        <div class="field"><label for="preferredColor">Preferred Color</label><input type="text" id="preferredColor" name="preferredColor"></div>
+        <div class="field"><label for="eventType">Event Type</label><input type="text" id="eventType" name="eventType" placeholder="Wedding, birthday, owambe…"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="eventDate">Event Date</label><input type="date" id="eventDate" name="eventDate"></div>
+        <div class="field"><label for="size">Size (if known)</label><input type="text" id="size" name="size"></div>
+      </div>
+      <div class="field"><label for="measurements">Measurements (if available)</label><textarea id="measurements" name="measurements" rows="3" placeholder="Bust, waist, hips, length — or let us know you'd like a measuring guide."></textarea></div>
+      <div class="field"><label for="instructions">Additional Instructions</label><textarea id="instructions" name="instructions" rows="3"></textarea></div>
+
+      <div class="field">
+        <label>Reference Images (up to 6)</label>
+        <div class="file-drop" id="coutureDropZone">
+          <p>Tap to upload inspiration images</p>
+          <input type="file" id="coutureFiles" accept="image/*" multiple hidden>
+        </div>
+        <div class="file-preview-list" id="coutureFilePreview"></div>
+      </div>
+
+      <button type="submit" class="btn btn-gold">Submit Request</button>
+    </form>
+
+    <div id="coutureConfirmation" hidden></div>
+  </div>
+</section>
+
+<div id="site-footer"></div>
+
+<script src="js/components.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/wishlist.js"></script>
+<script src="firebase/firebase-config.js"></script>
+<script src="firebase/firebase-helpers.js"></script>
+<script src="firebase/firestore.js"></script>
+<script src="js/main.js"></script>
+<script src="js/custom-couture.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Couture Requests — Tivora Admin</title>
+<link rel="icon" href="../../assets/icons/favicon.png">
+<link rel="stylesheet" href="../css/admin.css">
+<link rel="stylesheet" href="../css/admin-responsive.css">
+</head>
+<body>
+<div class="admin-shell">
+  <div id="admin-sidebar"></div>
+  <main class="admin-main">
+    <div class="admin-topbar"><h1>Custom Couture Requests</h1></div>
+    <div id="coutureList"></div>
+    <div class="admin-panel">
+      <div class="admin-empty" id="coutureEmpty" hidden>No custom couture requests yet.</div>
+    </div>
+  </main>
+</div>
+
+<script src="../../firebase/firebase-config.js"></script>
+<script src="../../firebase/firebase-helpers.js"></script>
+<script src="../../firebase/auth.js"></script>
+<script src="../../firebase/firestore.js"></script>
+<script src="../js/admin.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/custom-couture.js"></script>
+</body>
+</html>
