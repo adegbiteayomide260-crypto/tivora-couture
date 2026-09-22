@@ -9,7 +9,7 @@
    ========================================================================== */
 
 window.TIVORA_FIREBASE_CONFIG = {
-  apiKey: 'AIzaSyC56F4qiji6oLhojgjmjfAJqZGJrMtHNQ',
+  apiKey: ''AIzaSyBd5UiqHXUOBvXroC81CEXADrId9ho-QC0,
   authDomain: 'tivoracouture.firebaseapp.com',
   projectId: 'tivoracouture',
   storageBucket: 'tivoracouture.firebasestorage.app',
