@@ -86,5 +86,12 @@
       if (msg) msg.textContent = 'Welcome to the world of Tivora — check your inbox shortly.';
       input.value = '';
     });
+  }  /* ---- PWA service worker ---- */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js')
+        .then(() => console.log('Tivora service worker registered'))
+        .catch(err => console.warn('Tivora service worker registration failed:', err));
+    });
   }
 })();

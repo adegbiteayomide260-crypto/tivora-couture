@@ -65,3 +65,72 @@
     btn.disabled = false; btn.textContent = 'Save Settings';
   }
 })();
+
+(function () {
+  'use strict';
+
+  document.addEventListener('tivora-admin:ready', async () => {
+    const button = document.getElementById('saveAtelierImages');
+    if (button) button.addEventListener('click', saveAtelierImages);
+
+    try {
+      const settings = await window.TivoraFirestore.adminGetGeneralSettings();
+      if (settings) {
+        for (let i = 1; i <= 5; i++) {
+          const status = document.getElementById('atelierImage' + i + 'Status');
+          if (status && settings['atelierImage' + i]) {
+            status.textContent = 'Current image is saved. Choose a new file to replace it.';
+          }
+        }
+      }
+    } catch (err) {
+      console.warn('Could not load atelier image settings:', err.message);
+    }
+  });
+
+  async function saveAtelierImages() {
+    const button = document.getElementById('saveAtelierImages');
+    const message = document.getElementById('atelierImagesMsg');
+
+    button.disabled = true;
+    button.textContent = 'Uploading…';
+
+    try {
+      const updates = {};
+
+      for (let i = 1; i <= 5; i++) {
+        const input = document.getElementById('atelierImage' + i);
+        const file = input && input.files ? input.files[0] : null;
+
+        if (!file) continue;
+
+        const status = document.getElementById('atelierImage' + i + 'Status');
+        if (status) status.textContent = 'Uploading…';
+
+        const uploaded = await window.TivoraCloudinary.uploadImage(
+          file,
+          'tivora-couture/site-images'
+        );
+
+        updates['atelierImage' + i] = uploaded.url;
+
+        if (status) status.textContent = 'Uploaded successfully.';
+      }
+
+      if (Object.keys(updates).length === 0) {
+        message.textContent = 'Choose at least one image first.';
+        return;
+      }
+
+      await window.TivoraFirestore.adminUpdateSettings(updates);
+
+      message.textContent = 'Atelier images saved successfully.';
+    } catch (err) {
+      console.error(err);
+      message.textContent = 'Could not upload images: ' + err.message;
+    } finally {
+      button.disabled = false;
+      button.textContent = 'Upload & Save Images';
+    }
+  }
+})();
