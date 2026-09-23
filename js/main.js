@@ -94,4 +94,121 @@
         .catch(err => console.warn('Tivora service worker registration failed:', err));
     });
   }
+  /* ---- PWA install prompt ---- */
+  let deferredInstallPrompt = null;
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+
+    if (document.getElementById('tivoraInstallPrompt')) return;
+    if (window.matchMedia('(display-mode: standalone)').matches) return;
+
+    const banner = document.createElement('div');
+    banner.id = 'tivoraInstallPrompt';
+    banner.innerHTML = `
+      <div class="tivora-install-content">
+        <div>
+          <strong>Install Tivora Couture</strong>
+          <span>Get the full app-like shopping experience.</span>
+        </div>
+        <div class="tivora-install-actions">
+          <button type="button" id="tivoraInstallBtn">Install App</button>
+          <button type="button" id="tivoraInstallDismiss">Not now</button>
+        </div>
+      </div>
+    `;
+
+    Object.assign(banner.style, {
+      position: 'fixed',
+      left: '16px',
+      right: '16px',
+      bottom: '16px',
+      zIndex: '99999',
+      background: '#3d0a19',
+      color: '#f5ede0',
+      padding: '16px 18px',
+      borderRadius: '14px',
+      boxShadow: '0 12px 35px rgba(0,0,0,.25)',
+      fontFamily: 'Jost, sans-serif'
+    });
+
+    const content = banner.querySelector('.tivora-install-content');
+    Object.assign(content.style, {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: '18px',
+      flexWrap: 'wrap'
+    });
+
+    const title = banner.querySelector('strong');
+    const subtitle = banner.querySelector('span');
+
+    Object.assign(title.style, {
+      display: 'block',
+      fontFamily: 'Cormorant Garamond, serif',
+      fontSize: '20px'
+    });
+
+    Object.assign(subtitle.style, {
+      display: 'block',
+      marginTop: '3px',
+      fontSize: '13px',
+      opacity: '.85'
+    });
+
+    const actions = banner.querySelector('.tivora-install-actions');
+    Object.assign(actions.style, {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px'
+    });
+
+    const installBtn = banner.querySelector('#tivoraInstallBtn');
+    Object.assign(installBtn.style, {
+      border: '0',
+      borderRadius: '999px',
+      padding: '11px 18px',
+      background: '#c39a4f',
+      color: '#3d0a19',
+      fontWeight: '700',
+      cursor: 'pointer'
+    });
+
+    const dismissBtn = banner.querySelector('#tivoraInstallDismiss');
+    Object.assign(dismissBtn.style, {
+      border: '0',
+      background: 'transparent',
+      color: '#f5ede0',
+      padding: '10px',
+      cursor: 'pointer'
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (!deferredInstallPrompt) return;
+
+      deferredInstallPrompt.prompt();
+      const result = await deferredInstallPrompt.userChoice;
+
+      if (result.outcome === 'accepted') {
+        banner.remove();
+      }
+
+      deferredInstallPrompt = null;
+    });
+
+    dismissBtn.addEventListener('click', () => {
+      banner.remove();
+    });
+
+    document.body.appendChild(banner);
+  });
+
+  window.addEventListener('appinstalled', () => {
+    deferredInstallPrompt = null;
+    const banner = document.getElementById('tivoraInstallPrompt');
+    if (banner) banner.remove();
+  });
+
 })();
